@@ -20,7 +20,7 @@ extension Radix {
     /// - Throws: ``Radix/Error/insufficientDigits(count:)`` when fewer than two
     ///   glyphs are supplied, or ``Radix/Error/duplicateDigit(_:)`` when a glyph
     ///   repeats.
-    public init(digits: [Unicode.Scalar], casing: Casing = .sensitive) throws(Radix.Error) {
+    public init(digits: [Unicode.Scalar], casing: Casing = .sensitive) throws(Self.Error) {
         guard digits.count >= 2 else {
             throw .insufficientDigits(count: digits.count)
         }
@@ -32,8 +32,9 @@ extension Radix {
             switch casing {
             case .sensitive:
                 key = glyph.value
+
             case .insensitive:
-                key = Radix.folded(glyph).value
+                key = Self.folded(glyph).value
             }
             guard seen.insert(key).inserted else {
                 throw .duplicateDigit(glyph)

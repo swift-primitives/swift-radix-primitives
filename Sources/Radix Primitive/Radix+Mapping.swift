@@ -45,9 +45,10 @@ extension Radix {
         switch casing {
         case .sensitive:
             return digits.firstIndex(of: glyph)
+
         case .insensitive:
-            let target = Radix.folded(glyph)
-            return digits.firstIndex { Radix.folded($0) == target }
+            let target = Self.folded(glyph)
+            return digits.firstIndex { Self.folded($0) == target }
         }
     }
 }
