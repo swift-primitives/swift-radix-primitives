@@ -81,7 +81,7 @@ extension Radix.Test.Mapping {
 
     @Test
     func `round trips value through glyph`() {
-        for value in 0..<Radix.hexadecimal.base {
+        (0..<Radix.hexadecimal.base).forEach { value in
             let glyph = Radix.hexadecimal.digit(for: value)
             #expect(glyph != nil)
             if let glyph {
@@ -95,7 +95,7 @@ extension Radix.Test.Mapping {
 
 extension Radix.Test.Construction {
     @Test
-    func `custom radix maps by alphabet position`() throws {
+    func `custom radix maps by alphabet position`() throws(Radix.Error) {
         let base4 = try Radix(digits: ["w", "x", "y", "z"])
         #expect(base4.base == 4)
         #expect(base4.digit(for: 2) == "y")
@@ -103,14 +103,14 @@ extension Radix.Test.Construction {
     }
 
     @Test
-    func `case sensitive radix distinguishes letter case`() throws {
+    func `case sensitive radix distinguishes letter case`() throws(Radix.Error) {
         let radix = try Radix(digits: ["a", "A"], casing: .sensitive)
         #expect(radix.value(of: "a") == 0)
         #expect(radix.value(of: "A") == 1)
     }
 
     @Test
-    func `case insensitive radix folds letter case`() throws {
+    func `case insensitive radix folds letter case`() throws(Radix.Error) {
         let radix = try Radix(digits: ["a", "b", "c"], casing: .insensitive)
         #expect(radix.value(of: "B") == 1)
     }
@@ -141,7 +141,7 @@ extension Radix.Test.Construction {
 
 extension Radix.Test.`Edge Case` {
     @Test
-    func `non letter glyphs are unaffected by case folding`() throws {
+    func `non letter glyphs are unaffected by case folding`() throws(Radix.Error) {
         let radix = try Radix(digits: ["!", "@", "#"], casing: .insensitive)
         #expect(radix.value(of: "@") == 1)
         #expect(radix.value(of: "?") == nil)

@@ -65,8 +65,7 @@ public struct Radix {
     /// This initializer performs no validation; it is the canonical storage
     /// initializer used by the standard radixes and by the validating
     /// ``init(digits:casing:)``.
-    @inlinable
-    init(_ digits: [Unicode.Scalar], casing: Casing) {
+    package init(_ digits: [Unicode.Scalar], casing: Casing) {
         self.digits = digits
         self.casing = casing
     }
