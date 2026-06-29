@@ -1,0 +1,10 @@
+# .github/metadata.yaml
+description: "Radix primitive for Swift — the positional-numeral-base model: a radix value plus its ordered digit alphabet, with single-digit value↔glyph mapping. Standard binary, octal, decimal, and hexadecimal radixes included."
+topics:
+  - primitives
+  - radix
+  - numeral-system
+  - digits
+homepage: "https://swift-institute.org"
+readme:
+  family: E
