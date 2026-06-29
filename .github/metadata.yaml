@@ -1,5 +1,5 @@
 # .github/metadata.yaml
-description: "Radix primitive for Swift — the positional-numeral-base model: a radix value plus its ordered digit alphabet, with single-digit value↔glyph mapping. Standard binary, octal, decimal, and hexadecimal radixes included."
+description: "Positional-numeral-base model for Swift — a radix value paired with its ordered digit alphabet, with single-digit value↔glyph mapping. Standard binary, octal, decimal, and hexadecimal radixes included; Foundation-free."
 topics:
   - primitives
   - radix
