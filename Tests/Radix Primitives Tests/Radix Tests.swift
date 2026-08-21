@@ -1,8 +1,6 @@
 import Radix_Primitives_Test_Support
 import Testing
 
-// MARK: - Test Suite Structure
-
 extension Radix {
     @Suite struct Test {}
 }
@@ -13,8 +11,6 @@ extension Radix.Test {
     @Suite struct Construction {}
     @Suite struct `Edge Case` {}
 }
-
-// MARK: - Standard radixes
 
 extension Radix.Test.Standard {
     @Test
@@ -42,8 +38,6 @@ extension Radix.Test.Standard {
         #expect(Radix.hexadecimal.digit(for: 15) == "f")
     }
 }
-
-// MARK: - Digit mapping
 
 extension Radix.Test.Mapping {
     @Test
@@ -91,8 +85,6 @@ extension Radix.Test.Mapping {
     }
 }
 
-// MARK: - Construction
-
 extension Radix.Test.Construction {
     @Test
     func `custom radix maps by alphabet position`() throws(Radix.Error) {
@@ -136,8 +128,6 @@ extension Radix.Test.Construction {
         }
     }
 }
-
-// MARK: - Edge cases
 
 extension Radix.Test.`Edge Case` {
     @Test
